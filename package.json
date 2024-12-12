@@ -1,0 +1,30 @@
+{
+  "name": "mongock-documentation",
+  "version": "1.0.0",
+  "description": "Mongock documentation",
+  "scripts": {
+    "clean": "rm -rf ./_site",
+    "start": "eleventy --serve",
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production",
+    "serve": "npx eleventy --serve",
+    "watch": "npx eleventy --watch",
+    "debug": "DEBUG=* npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monogock/mongock-docs.git"
+  },
+  "author": "Mongock team <development@mongock.io> (https://www.mongock.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monogock/mongock/issues"
+  },
+  "homepage": "https://docs.mongock.io",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.3.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^1.0.5",
+    "markdown-it-anchor": "^5.0.2",
+    "markdown-it-table-of-contents": "^0.5.2"
+  }
+}
