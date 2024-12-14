@@ -43,7 +43,7 @@ window.onload = function() {
 
 function pickVersion(urlVersion) {
   const pickedVersion = urlVersion || defaultVersion;
-  document.getElementById("versionSelect").value = pickedVersion;
+{# document.getElementById("versionSelect").value = pickedVersion; #}
   versions.forEach(version => {
     const htmlElement = document.getElementById(version.value);
     if(htmlElement) {
@@ -73,18 +73,15 @@ function changeVersion() {
 </script>
 
 
-
-
-
-
 <aside class="side-menu">
-  
+ {#
   <select style="width: 100%" name="version" id="versionSelect" onchange="changeVersion()">
     {% for versionedMenus in collections.versionedMenus %}
       <option value="{{ versionedMenus.value }}">{{ versionedMenus.name }}</option>
     {% endfor %}
   </select>
   <br /><br />
+#}
 
 
 
