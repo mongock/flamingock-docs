@@ -1,10 +1,10 @@
 ---
 title: CLI  
 date: 2014-04-18 11:30:00 
-permalink: /v5/cli/index.html
+permalink: /v1/cli/index.html
 upperCase: true
 eleventyNavigation:
-  version: v5
+  version: v1
   root: true
   order: 70
 ---
@@ -22,7 +22,7 @@ So far we have explained how to run Mongock as part of your application, normall
 1. Download the latest version of the **mongock-cli-LATEST_VERSION.zip** from [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.mongock/mongock-cli/badge.png)](https://repo.maven.apache.org/maven2/io/mongock/mongock-cli/).
 2. Unzip it.
 3. Open a terminal and locate it inside the unzipped folder.
-4. Run the one of the operations available in [opreations page](/v5/cli/operations).
+4. Run the one of the operations available in [opreations page](/v1/cli/operations).
 
 
 ## 2. Prepare your application
@@ -86,4 +86,4 @@ Mongock CLI requires the application to be upgraded to Mongock version 5.
 
 <!-- #### Professional operations
 
-There are some  operations labeled with <span class="professional">PRO</span>. This means it's a professional operation that requires the jar application to use the professional Mongock. Visit [this section](/v5/professional) to use Mongock professional in your application. -->
+There are some  operations labeled with <span class="professional">PRO</span>. This means it's a professional operation that requires the jar application to use the professional Mongock. Visit [this section](/v1/professional) to use Mongock professional in your application. -->

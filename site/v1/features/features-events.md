@@ -1,10 +1,10 @@
 ---
 title: 'Events' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/features/events/index.html
+permalink: /v1/features/events/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 10 
   parent: features
   key: features events

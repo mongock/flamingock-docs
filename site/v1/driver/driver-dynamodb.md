@@ -1,10 +1,10 @@
 ---
 title: 'DynamoDB' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/driver/dynamodb/index.html
+permalink: /v1/driver/dynamodb/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 100 
   parent: driver
   key: driver dynamodb 
@@ -48,7 +48,7 @@ You can also use the Mongock spring extension to get advantage from the autconfi
 
 
 ## Get started 
-Following the [get started section](/v5/get-started#steps-to-run-mongock), this covers steps 3 and 5 and 6.
+Following the [get started section](/v1/get-started#steps-to-run-mongock), this covers steps 3 and 5 and 6.
 
 ### Add maven dependency for the driver (step 2)
 

@@ -1,9 +1,9 @@
 ---
 title: From version 4 to 5
 date: 2014-04-18 11:30:00 
-permalink: /v5/from-version-4-to-5/index.html
+permalink: /v1/from-version-4-to-5/index.html
 eleventyNavigation:
-  version: v5
+  version: v1
   root: true
   order: 110
 ---
@@ -32,7 +32,7 @@ Although the migration from version 4 to version 5 is trivial, we want to make y
  <!--...-->
 </dependencyManagement>
 ```
-- If using Spring, replace `mongock-spring-v5` to `mongock-springboot`
+- If using Spring, replace `mongock-spring-v1` to `mongock-springboot`
 
 ```xml
 
@@ -45,7 +45,7 @@ Although the migration from version 4 to version 5 is trivial, we want to make y
 ### Mongock packages
 | Module               | Version 4                                                            | Version 5 |
 |--------------------- | -------------------------------------------------------------------- | -------------------- |
-| Spring runner        | com.github.cloudyrock.spring.v5                                      | io.mongock.runner.springboot      |
+| Spring runner        | com.github.cloudyrock.spring.v1                                      | io.mongock.runner.springboot      |
 | Spring runner        | com.github.cloudyrock.spring.util.events                             | io.mongock.runner.spring.base.events |
 | Standalone runner    | com.github.cloudyrock.standalone                                     | io.mongock.runner.standalone |
 | MongoDB V3 driver    | com.github.cloudyrock.mongock.driver.mongodb.v3                      | io.mongock.driver.mongodb.v3
@@ -58,9 +58,9 @@ Although the migration from version 4 to version 5 is trivial, we want to make y
 ### Mongock classes
 | Module               | Version 4                                                                                 | Version 5 |
 |--------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
-| Spring runner        | com.github.cloudyrock.spring.v5.MongockSpring5                                            | io.mongock.runner.springboot.MongockSpringboot |
-| Spring runner        | com.github.cloudyrock.spring.v5.MongockSpring5.MongockApplicationRunner                   | io.mongock.runner.springboot.base.MongockApplicationRunner |
-| Spring runner        | com.github.cloudyrock.spring.v5.MongockSpring5.MongockInitializingBeanRunner              | io.mongock.runner.springboot.base.MongockInitializingBeanRunner |
+| Spring runner        | com.github.cloudyrock.spring.v1.MongockSpring5                                            | io.mongock.runner.springboot.MongockSpringboot |
+| Spring runner        | com.github.cloudyrock.spring.v1.MongockSpring5.MongockApplicationRunner                   | io.mongock.runner.springboot.base.MongockApplicationRunner |
+| Spring runner        | com.github.cloudyrock.spring.v1.MongockSpring5.MongockInitializingBeanRunner              | io.mongock.runner.springboot.base.MongockInitializingBeanRunner |
 
 
 ### Deprecations
@@ -76,7 +76,7 @@ From Mongock version 5, `@ChangeLog` and `@ChangeSet` annotations are **deprecat
 
 Please visit the [ChangeLog - version 4](/v4/changelogs/index.html) section to access the ChangeLog documentation for Version 4. 
 
-For more information about the reason we have adopted this change, please visit our [FAQ section](/v5/faq#changelog-deprecation).
+For more information about the reason we have adopted this change, please visit our [FAQ section](/v1/faq#changelog-deprecation).
 
 
 

@@ -1,10 +1,10 @@
 ---
 title: Transactions 
 date: 2014-04-18 11:30:00 
-permalink: /v5/features/transactions/index.html
+permalink: /v1/features/transactions/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 5
   parent: features
   key: features transactions 
@@ -17,13 +17,13 @@ eleventyNavigation:
 [[TOC]]
 ## Introduction 
 
-We already discussed the [Mongock process](/v5/technical-overview#mongock-process) and the [migration component](/v5/migration) in previous sections where the transactions are already mentioned. 
+We already discussed the [Mongock process](/v1/technical-overview#mongock-process) and the [migration component](/v1/migration) in previous sections where the transactions are already mentioned. 
 
 As its name suggests, a changeUnit represents the unit of a migration. By default each changeUnit is wrapped in a independent transaction. This can be change by configuration, but it's not recommended.
 
 <div class="tip">
 <p>In this section we mention <b>native transactions</b>. By this we mean the transaction mechanism provided by the database.</p>
-<p>Mongock always try to provide a transactional environment as much as possible. When native transactions are not possible, it tries to rollback the changes manually with the <a href="/v5/migration#changeunit-methods">@RollbackExecution</a> method.</p>
+<p>Mongock always try to provide a transactional environment as much as possible. When native transactions are not possible, it tries to rollback the changes manually with the <a href="/v1/migration#changeunit-methods">@RollbackExecution</a> method.</p>
 </div>
 
 ## Configuration
@@ -35,7 +35,7 @@ There are two points where the transactions are configured to be enforced or dis
 In every driver's page, you will find enough information about how to enable the native transactions.
 
 
-As explained in the [runner properties table](/v5/runner#Configuration), the Mongock native transactionability follows the next logic:
+As explained in the [runner properties table](/v1/runner#Configuration), the Mongock native transactionability follows the next logic:
 
 <div class="success">
 <p >When <b>mongock.transactional</b> is true, it enforces native transactions, throwing an exception is the driver is not capable of it.</p>
@@ -46,7 +46,7 @@ As explained in the [runner properties table](/v5/runner#Configuration), the Mon
 
 ## How it works
 
-The easiest way to understand how Mongock handles the transactions is by looking at [this section](/v5/technical-overview#process-steps).
+The easiest way to understand how Mongock handles the transactions is by looking at [this section](/v1/technical-overview#process-steps).
 
 
 ## Best practices

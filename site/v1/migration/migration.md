@@ -1,9 +1,9 @@
 ---
 title: Migration
 date: 2014-04-18 11:30:00 
-permalink: /v5/migration/index.html
+permalink: /v1/migration/index.html
 eleventyNavigation:
-  version: v5
+  version: v1
   root: true
   order: 30
 ---
@@ -22,7 +22,7 @@ eleventyNavigation:
 
 [[TOC]]
 
-<p class="tip">The <b>@ChangeLog</b> annotation has been <b>deprecated</b> in favour of the <b>@ChangeUnit</b>. For more information check <a href="/v5/faq#why-we-have-added-the-changeunit-annotation-and-deprecated-changelog">this section</a></p>
+<p class="tip">The <b>@ChangeLog</b> annotation has been <b>deprecated</b> in favour of the <b>@ChangeUnit</b>. For more information check <a href="/v1/faq#why-we-have-added-the-changeunit-annotation-and-deprecated-changelog">this section</a></p>
 
 ## Introduction
  A migration is composed by multiple smaller pieces called ChangeUnits, which are processed in order by the Mongock runner.
@@ -67,8 +67,8 @@ Multiple attributes can be passed to ChangeUnits to configure these. The followi
 | id           | Returns the ChangeUnit's id that will be stored in the ChangeUnit history table/collection and will the way to identify a ChangeUnit. The combination of this field and the author must be unique among the changeunits.|YES|       n/a     |
 | order        | Returns the ChangeUnit's execution order. The order will be applied treating the value as alphanumeric.  | YES | n/a |
 | author       | Returns the ChangeUnit's author. The combination of this and the author must be unique among the changeunits.|     NO     | `default-author` |
-| runAlways      | Returns whether the ChangeUnit is runAlways or not. For more information, visit the [runner configuration section](/v5/runner/#configuration).  | NO | `false` |
-| systemVersion| Returns the ChangeUnit's system version. For more information, visit the [runner configuration section](/v5/runner/#configuration).| NO | `0` |
+| runAlways      | Returns whether the ChangeUnit is runAlways or not. For more information, visit the [runner configuration section](/v1/runner/#configuration).  | NO | `false` |
+| systemVersion| Returns the ChangeUnit's system version. For more information, visit the [runner configuration section](/v1/runner/#configuration).| NO | `0` |
 
 ------------------------------------------------------
 
@@ -160,4 +160,4 @@ From Mongock version 5, `@ChangeLog` and `@ChangeSet` annotations are **deprecat
 
 Please visit the [ChangeLog - version 4](/v4/changelogs/index.html) section to access the ChangeLog documentation for Version 4. 
 
-For more information about the reason we have adopted this change, please visit our [FAQ section](/v5/faq#changelog-deprecation).
+For more information about the reason we have adopted this change, please visit our [FAQ section](/v1/faq#changelog-deprecation).

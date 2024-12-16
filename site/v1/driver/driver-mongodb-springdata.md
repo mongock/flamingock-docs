@@ -1,10 +1,10 @@
 ---
 title: 'MongoDB Spring data' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/driver/mongodb-springdata/index.html
+permalink: /v1/driver/mongodb-springdata/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 86 
   parent: driver
   key: driver mongodb 
@@ -50,7 +50,7 @@ All the MongoDB drivers share the same configuration.
 -------------------------------------------
 
 ### Get started 
-Following the [get started section](/v5/get-started#steps-to-run-mongock), this covers steps 3 and 5 and 6.
+Following the [get started section](/v1/get-started#steps-to-run-mongock), this covers steps 3 and 5 and 6.
 #### - Add maven dependency for the driver (step 2)
 ```xml
 <dependency>

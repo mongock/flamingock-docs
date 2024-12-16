@@ -1,9 +1,9 @@
 ---
 title: Mongock Professional  
 date: 2014-04-18 11:30:00 
-permalink: /v5/professional/index.html
+permalink: /v1/professional/index.html
 eleventyNavigation:
-  version: v5
+  version: v1
   root: true
   order: 5
 ---
@@ -23,4 +23,4 @@ Mongock professional is the extension of the Mongock open source project. This p
 As mentioned, in summary Mongock professional provides business support(with different levels depending on the business needs) and advanced features. 
 
 
-### Please visit this [link](/v5/professional/setup.html) to get started 
+### Please visit this [link](/v1/professional/setup.html) to get started 

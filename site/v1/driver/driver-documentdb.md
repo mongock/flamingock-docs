@@ -1,10 +1,10 @@
 ---
 title: 'DocumentDB' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/driver/documentdb/index.html
+permalink: /v1/driver/documentdb/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 95 
   parent: driver
   key: driver documentdb 
@@ -19,7 +19,7 @@ eleventyNavigation:
 
 ## Compatibility
 
-As AWS DocumentDB relies on the MongoDB driver/api, **you can use Mongock to manage your migration in the same way you would do with MongoDB**, using one of the drivers Mongock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v5/driver/mongodb-sync)
+As AWS DocumentDB relies on the MongoDB driver/api, **you can use Mongock to manage your migration in the same way you would do with MongoDB**, using one of the drivers Mongock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v1/driver/mongodb-sync)
  
  
 

@@ -3,7 +3,7 @@ title: What is Mongock?
 date: 2014-04-18 11:30:00 
 permalink: /index.html
 eleventyNavigation:
-  version: v5
+  version: v1
   root: true
   order: 0
 ---
@@ -13,7 +13,7 @@ eleventyNavigation:
 </p>
 
 <div class="success">
-<b>Mongock 5 released!!</b> Please visit the <a href="/v5/from-version-4-to-5">upgrade page</a> to follow easy process. 
+<b>Mongock 5 released!!</b> Please visit the <a href="/v1/from-version-4-to-5">upgrade page</a> to follow easy process. 
 </div>
 
 ## Introduction
@@ -56,7 +56,7 @@ As part of the development, we have a new User Story which requires your applica
 
 In addition, the **client-service** is deployed in a distributed environment running with more than one node and with horizontal scaling.
 
-### 2. Your migration changes ([link](/v5/migration/))
+### 2. Your migration changes ([link](/v1/migration/))
 We first need to implement the migration to retrieve the data from the third party system and persist it in the database. For this we use the ChangeUnit, which is Mongock's unit of Migration. This will be where we write the code. 
 
 <div class="successAlt">
@@ -65,7 +65,7 @@ We first need to implement the migration to retrieve the data from the third par
 
 Please, visit the [ChangeUnit section](/migration/) for more information.
 
-### 3. The persistent layer ([link](/v5/driver/))
+### 3. The persistent layer ([link](/v1/driver/))
 We need to access the database for multiple reasons:
 - To persist the client data we just retrieved.
 - Mongock needs to track the ChangeUnits that have been executed, so the **client-service** doesn't execute them twice. 
@@ -75,7 +75,7 @@ We need to access the database for multiple reasons:
 
 For allowing Mongock to access the database and persist state changes, we will use the **Mongock Driver**. The driver contains all the information and mechanisms to access to the database. Mongock provides multiple drivers for different databases. The developers can choose the most suitable and configure the driver by providing some information like the the target schema, etc.
 
-Please, visit the [Driver section](/v5/driver/) for more information.
+Please, visit the [Driver section](/v1/driver/) for more information.
 
 ### 4. Run the migration
 Once we have implemented our migration in our changelog and configured the persistent layer using a Mongock driver, we need to run the migration. For this, we will use the **Mongock Runner**.
@@ -84,11 +84,11 @@ The Mongock Runner orchestrates the configurations, environment/framework settin
 
 Great, we have the migration done, tested, deployed and working nicely. Awesome 🎉 
 
-Mongock provides multiple runners for framework compatibility: for standalone applications, Springboot and many others coming soon. Please, visit the [Runner section](/v5/runner/) for more information.
+Mongock provides multiple runners for framework compatibility: for standalone applications, Springboot and many others coming soon. Please, visit the [Runner section](/v1/runner/) for more information.
 
 
 
-For a more in-depth description of Mongock, please visit the [Technical Overview](/v5/technical-overview) section
+For a more in-depth description of Mongock, please visit the [Technical Overview](/v1/technical-overview) section
 
 ### ... Cool, but we got a new user story! 😱
 
@@ -102,4 +102,4 @@ The explained way of running Mongock is the common and traditional use case. How
 
 You can use the **Mongock CLI** to run the same migration, but also other operations like undo, list and more supported operations. The purpose is to provide a flexible manner of executing migrations.
 
-Please, visit the [CLI section](/v5/cli/) for more information.
+Please, visit the [CLI section](/v1/cli/) for more information.

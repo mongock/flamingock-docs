@@ -1,10 +1,10 @@
 ---
 title: Multitenant 
 date: 2014-04-18 11:30:00 
-permalink: /v5/features/multitenant/index.html
+permalink: /v1/features/multitenant/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 15
   parent: features
   key: features multitenant 

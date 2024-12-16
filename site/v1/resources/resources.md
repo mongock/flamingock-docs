@@ -1,9 +1,9 @@
 ---
 title: Resoruces
 date: 2021-10-21 11:30:00 
-permalink: /v5/resources/index.html
+permalink: /v1/resources/index.html
 eleventyNavigation:
-  version: v5
+  version: v1
   root: true
   order: 80
 ---

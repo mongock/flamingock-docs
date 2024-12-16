@@ -1,10 +1,10 @@
 ---
 title: 'Legacy migration' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/features/legacy-migration/index.html
+permalink: /v1/features/legacy-migration/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 20 
   parent: features
   key: features legacy migration

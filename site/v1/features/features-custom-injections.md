@@ -1,10 +1,10 @@
 ---
 title: 'Custom injections' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/features/custom-injections/index.html
+permalink: /v1/features/custom-injections/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 1 
   parent: features
   key: features custom injections
@@ -16,7 +16,7 @@ eleventyNavigation:
 [[TOC]]
 
 # Introduction
-Mongock primarily uses a code-first approach([here](/v5/faq/index.html#why-does-mongock-use-a-code-first-approach-for-its-change-units%3F) we explain why) 
+Mongock primarily uses a code-first approach([here](/v1/faq/index.html#why-does-mongock-use-a-code-first-approach-for-its-change-units%3F) we explain why) 
 for its migration and one of the benefits is the ability to inject any bean you want to your migration.
 
 Some scenarios this can be useful:

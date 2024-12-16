@@ -1,9 +1,9 @@
 ---
 title: Technical overview
 date: 2014-04-18 11:30:00 
-permalink: /v5/technical-overview/index.html
+permalink: /v1/technical-overview/index.html
 eleventyNavigation:
-  version: v5
+  version: v1
   root: true
   order: 10
 ---
@@ -18,7 +18,7 @@ A migration covers transactional changes and operations you want to track in you
 
 As Mongock promotes a code-first approach for migrations, a ChangeUnit is materialized as a Java class. Using the `@ChangeUnit` annotation you will be able to implement your unit of migration that will be stored in the Mongock state records.
 
-_For more information, visit the [Migration page](/v5/migration/)_
+_For more information, visit the [Migration page](/v1/migration/)_
 
 
 <p class="tip">Note that the <b>@ChangeLog</b> and <b>@ChangeSet</b>  annotations have been deprecated in Version 5 and replaced by the new annotation <b>@ChangeUnit</b></p>
@@ -36,7 +36,7 @@ For example, in the case of MongoDB, Mongock provides 4 drivers for:
 
 The Mongock architecture is designed in such a way that allows you to combine any driver with any runner. For example, you may want to use a Mongock driver for springdata with the standalone runner(no framework).
 
-_For more information, visit the [Driver page](/v5/driver/)_
+_For more information, visit the [Driver page](/v1/driver/)_
 
 ### Runner
 
@@ -44,7 +44,7 @@ The runner is the orchestator component dealing with the process logic, configur
 
 Mongock provides different runner for multiple frameworks(standalone, Springboot, Micronaut...) and it can be combined with any driver
 
-_For more information, visit the [Runner page](/v5/runner/)_
+_For more information, visit the [Runner page](/v1/runner/)_
 
 -----------------------------------------
 
@@ -65,7 +65,7 @@ Mongock process follows the next steps:
 4. The runner loops over the migration files(changeUnits) in order.
 5. Takes the next ChangeUnit and executes it.
     - If the ChangeUnit is successfully executed, Mongock persists an entry in the Mongock change history with the state SUCCESS and start the step 5 again.
-    - If the ChangeUnit fails, the runner rolls back the change. If the driver supports transactions and transactions are enabled, the rollback is done natively. When the driver does not support transactions or transactions are disabled, the method [@RollbackExecution](/v5/migration#implementation) is executed. In both cases the ChangeUnit failed, whereas in the latter option, and entry is added in the changelog that a change has been rolled back.
+    - If the ChangeUnit fails, the runner rolls back the change. If the driver supports transactions and transactions are enabled, the rollback is done natively. When the driver does not support transactions or transactions are disabled, the method [@RollbackExecution](/v1/migration#implementation) is executed. In both cases the ChangeUnit failed, whereas in the latter option, and entry is added in the changelog that a change has been rolled back.
 6. If the runner acomplished to execute the entire migration with no failures, it's considered successful. It releases the lock and finishes the migration.
 7. On the other hand, if any ChangeUnit fails, the runner stops the migration at that point and throws an exception. When Mongock is executed again, it will continue from the failure ChangeUnit(included).
 

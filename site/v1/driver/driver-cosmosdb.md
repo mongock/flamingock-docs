@@ -1,10 +1,10 @@
 ---
 title: 'CosmosDB' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/driver/cosmosdb/index.html
+permalink: /v1/driver/cosmosdb/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 90 
   parent: driver
   key: driver cosmosdb 
@@ -25,7 +25,7 @@ eleventyNavigation:
 You can leverage your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
 
 ## Getting started
-**You can use Mongock to manage your Cosmos DB migrations in the same way you would do with MongoDB**, using one of the drivers Mongock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v5/driver/mongodb-sync)
+**You can use Mongock to manage your Cosmos DB migrations in the same way you would do with MongoDB**, using one of the drivers Mongock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v1/driver/mongodb-sync)
  
 ## Important notes
 ### Sharding the Mongock ChangeLog collection
@@ -47,6 +47,6 @@ You can find more information about Cosmos DB with MongoDB API and Java, here:
 - [Azure Cosmos DB API for MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/mongodb-introduction)
 - [Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/create-mongodb-java)
 - [Use Multi-document transactions in Azure Cosmos DB API for MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/use-multi-document-transactions)
-- [MongoDB transactions](https://docs.mongodb.com/v5.0/core/transactions/)
+- [MongoDB transactions](https://docs.mongodb.com/v1.0/core/transactions/)
 - [MongoDB shard keys](https://docs.mongodb.com/manual/core/sharding-shard-key/#shard-key-indexes)
 - [MongoDB compound indexes](https://docs.mongodb.com/manual/core/index-compound/#prefixes)

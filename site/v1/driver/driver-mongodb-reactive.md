@@ -1,10 +1,10 @@
 ---
 title: 'MongoDB reactive' 
 date: 2014-04-18 11:30:00 
-permalink: /v5/driver/mongodb-reactive/index.html
+permalink: /v1/driver/mongodb-reactive/index.html
 toc: true
 eleventyNavigation:
-  version: v5
+  version: v1
   order: 87 
   parent: driver
   key: driver mongodb 
@@ -18,7 +18,7 @@ This sections covers the Mongock implementation for MongoDB Java Reactive Stream
 
 <br />
 
-If you are curious about why mongock provides the `mongodb-reactive-driver`, if it's synchronous by definition, please take a look to [this faq entry](/v5/faq#why-does-mongock-provide-the-mongodb-reactive-driver%2C-if-it-is-synchronous-by-definition%3F)
+If you are curious about why mongock provides the `mongodb-reactive-driver`, if it's synchronous by definition, please take a look to [this faq entry](/v1/faq#why-does-mongock-provide-the-mongodb-reactive-driver%2C-if-it-is-synchronous-by-definition%3F)
 
 
 ## Important note
@@ -33,7 +33,7 @@ For this reason...
 
 This is a bit cumbersome, as it requires creating a blocking subscriber that allows the developer to block the call. 
 
-<p class="successAlt">Luckily, Mongock provides such a util class: <b>MongoSubscriberSync</b>. You can see an example <a href="/v5/driver/mongodb-reactive#code-example">here</a></p>
+<p class="successAlt">Luckily, Mongock provides such a util class: <b>MongoSubscriberSync</b>. You can see an example <a href="/v1/driver/mongodb-reactive#code-example">here</a></p>
 <br />
 Although Mongock provides this driver for those who, working in a reactive project, don't want to import the MongoDB java sync driver, we highly recommend the use of the synchronous drivers, when possible.
 <br /><br />
@@ -71,7 +71,7 @@ All the MongoDB drivers share the same configuration.
 -------------------------------------------
 
 ### Get started 
-Following the [get started section](/v5/get-started#steps-to-run-mongock), this covers steps 3 and 5 and 6.
+Following the [get started section](/v1/get-started#steps-to-run-mongock), this covers steps 3 and 5 and 6.
 
 #### - Add maven dependency for the driver (step 2)
 
@@ -127,7 +127,7 @@ The following code shows how to save documents inside the transaction using the 
 
 ## Reactive with Spring Data
 
-Please, take a look to [this FAQ entry](/v5/faq#can-i-use-the-mongodb-reactive-driver-with-a-spring-data-project%3F) 
+Please, take a look to [this FAQ entry](/v1/faq#can-i-use-the-mongodb-reactive-driver-with-a-spring-data-project%3F) 
 
 -------------------------------------------
 
