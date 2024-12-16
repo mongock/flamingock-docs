@@ -14,7 +14,7 @@ eleventyNavigation:
 
 [[TOC]]
 ## Introduction
-This sections covers the Mongock implementation for Spring Data MongoDB 2.x and 3.x 
+This sections covers the Flamingock implementation for Spring Data MongoDB 2.x and 3.x 
 
 <br />
 
@@ -22,7 +22,7 @@ This sections covers the Mongock implementation for Spring Data MongoDB 2.x and 
 
 ## MongoDB driver options and compatibility
 
-|     Mongock driver           |                  Driver library              | Version compatibility |
+|     Flamingock driver           |                  Driver library              | Version compatibility |
 |------------------------------|----------------------------------------------|-----------------------|
 | mongodb-springdata-v3-driver | org.springframework.data:spring-data-mongodb | 3.X.X                 |
 | mongodb-springdata-v2-driver | org.springframework.data:spring-data-mongodb | 2.X.X                 |
@@ -62,7 +62,7 @@ Following the [get started section](/v1/get-started#steps-to-run-mongock), this 
 
 #### - Build the driver (step 5)
 
-<p class="successAlt"><b>This step is only required for builder approach.</b> Mongock handles it for autoconfiguration.</p>
+<p class="successAlt"><b>This step is only required for builder approach.</b> Flamingock handles it for autoconfiguration.</p>
 
 These classes provide the same two static initializers:
 
@@ -83,7 +83,7 @@ driver.enableTransaction();
 #### - Driver extra configuration (step 6)
 
 ##### Transactions
-In order to use MongoDB transactions, we need to enable transactions in Mongock(this won't be required in next versions as transactions will be enabled by default).
+In order to use MongoDB transactions, we need to enable transactions in Flamingock(this won't be required in next versions as transactions will be enabled by default).
 
 With builder
 ```java
@@ -113,7 +113,7 @@ mongock:
 ```
 
 ```java
-@EnableMongock
+@EnableFlamingock
 @SpringBootApplication
 public class QuickStartApp {
 

@@ -14,7 +14,7 @@ eleventyNavigation:
 
 [[TOC]]
 ## Introduction
-This sections covers the Mongock implementation for MongoDB java Driver 3.x and 4.x 
+This sections covers the Flamingock implementation for MongoDB java Driver 3.x and 4.x 
 
 <br />
 
@@ -22,7 +22,7 @@ This sections covers the Mongock implementation for MongoDB java Driver 3.x and 
 
 ## MongoDB driver options and compatibility
 
-|     Mongock driver      |                  Driver library              | Version compatibility |
+|     Flamingock driver      |                  Driver library              | Version compatibility |
 |-------------------------|----------------------------------------------|-----------------------|
 |  mongodb-sync-v4-driver |        org.mongodb:mongodb-driver-sync       | 4.X.X                 |
 |   mongodb-v3-driver     |         org.mongodb:mongo-java-driver        | 3.X.X                 |
@@ -83,7 +83,7 @@ driver.setReadPreference(ReadPreference.primary());
 ##### Transactions
 Due to the MongoDB API design, to work with transactions the [ClientSession](https://mongodb.github.io/mongo-java-driver/4.3/apidocs/mongodb-driver-sync/com/mongodb/client/ClientSession.html) object is required in every MongoDB driver operation.
 <br /><br />
-Mongock makes this very simple. The developer only needs to specify a `ClientSession` parameter in the contructor or method of the `@ChangeUnit` and use it in the MongoDB operations. **Mongock takes care of everything else.**
+Flamingock makes this very simple. The developer only needs to specify a `ClientSession` parameter in the contructor or method of the `@ChangeUnit` and use it in the MongoDB operations. **Flamingock takes care of everything else.**
 <br /><br />
 The following code shows how to save documents inside the transaction using the `ClientSession` object.
 ```java

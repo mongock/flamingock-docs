@@ -14,7 +14,7 @@ eleventyNavigation:
 
 [[TOC]]
 ## Introduction
-This sections covers the Mongock implementation for MongoDB Java Reactive Streams driver.
+This sections covers the Flamingock implementation for MongoDB Java Reactive Streams driver.
 
 <br />
 
@@ -23,7 +23,7 @@ If you are curious about why mongock provides the `mongodb-reactive-driver`, if 
 
 ## Important note
 
-Despite this deriver, the Mongock's nature is still synchronous: A migration consists in a list of changes, which are executed in order, one after the other. If one of them fails, the migration aborts and Mongock will take it from that point in the next execution.
+Despite this deriver, the Flamingock's nature is still synchronous: A migration consists in a list of changes, which are executed in order, one after the other. If one of them fails, the migration aborts and Flamingock will take it from that point in the next execution.
 
 <br />
 For this reason...
@@ -33,9 +33,9 @@ For this reason...
 
 This is a bit cumbersome, as it requires creating a blocking subscriber that allows the developer to block the call. 
 
-<p class="successAlt">Luckily, Mongock provides such a util class: <b>MongoSubscriberSync</b>. You can see an example <a href="/v1/driver/mongodb-reactive#code-example">here</a></p>
+<p class="successAlt">Luckily, Flamingock provides such a util class: <b>MongoSubscriberSync</b>. You can see an example <a href="/v1/driver/mongodb-reactive#code-example">here</a></p>
 <br />
-Although Mongock provides this driver for those who, working in a reactive project, don't want to import the MongoDB java sync driver, we highly recommend the use of the synchronous drivers, when possible.
+Although Flamingock provides this driver for those who, working in a reactive project, don't want to import the MongoDB java sync driver, we highly recommend the use of the synchronous drivers, when possible.
 <br /><br />
 
 <br />
@@ -44,7 +44,7 @@ Although Mongock provides this driver for those who, working in a reactive proje
 
 ## MongoDB driver options and compatibility
 
-|     Mongock driver      |                  Driver library              | Version compatibility |
+|     Flamingock driver      |                  Driver library              | Version compatibility |
 |-------------------------|----------------------------------------------|-----------------------|
 | mongodb-reactive-driver |  org.mongodb:mongodb-driver-reactivestreams  | 4.X.X                 |
 
@@ -103,7 +103,7 @@ driver.setReadPreference(ReadPreference.primary());
 ##### Transactions
 Due to the MongoDB API design, to work with transactions the [ClientSession](https://mongodb.github.io/mongo-java-driver/4.3/apidocs/mongodb-driver-sync/com/mongodb/client/ClientSession.html) object is required in every MongoDB driver operation.
 <br /><br />
-Mongock makes this very simple. The developer only needs to specify a `ClientSession` parameter in the contructor or method of the `@ChangeUnit` and use it in the MongoDB operations. **Mongock takes care of everything else.**
+Flamingock makes this very simple. The developer only needs to specify a `ClientSession` parameter in the contructor or method of the `@ChangeUnit` and use it in the MongoDB operations. **Flamingock takes care of everything else.**
 <br /><br />
 The following code shows how to save documents inside the transaction using the `ClientSession` object.
 <div id="code-example"><div>

@@ -41,10 +41,10 @@ Like the rest of the runners, the springboot runner is built from a builder. Eac
 
 Springboot adds an extra mandatory field to the driver and scan class/package(mandatory in all the runners), the **Spring ApplicationContext**, from which all the dependencies injected to your migration classes are taken.
 
-When using the builder approach, you need to provide the driver and ApplicationContext manually to the builder. On the other hand, when using the autoconfiguration approach, Mongock will take the ApplicationContext from Springboot directly and will build the driver, which probably requires you to inject to the context the required parameters. For example the database, MongoTemplate, etc. This depends on the type of Driver you are using. Find more information in the [driver section](/v1/driver).
+When using the builder approach, you need to provide the driver and ApplicationContext manually to the builder. On the other hand, when using the autoconfiguration approach, Flamingock will take the ApplicationContext from Springboot directly and will build the driver, which probably requires you to inject to the context the required parameters. For example the database, MongoTemplate, etc. This depends on the type of Driver you are using. Find more information in the [driver section](/v1/driver).
 
 ```java
-MongockSpringboot.builder()
+FlamingockSpringboot.builder()
     .setDriver(driver)
     .addMigrationScanPackage("com.your.migration.package")
     .setSpringContext(springContext);
@@ -55,9 +55,9 @@ MongockSpringboot.builder()
 ______________________________________
 
 ## Springboot compatibility
-|   Mongock Runner   | Framework  | Version compatibility |
+|   Flamingock Runner   | Framework  | Version compatibility |
 |--------------------|------------|-----------------------|
-|  MongockSpringboot | Springboot | 2.X.X                 |
+|  FlamingockSpringboot | Springboot | 2.X.X                 |
 
 ## Configuration
 Visit the [configuration section](/v1/runner#configuration) in the runner page to see the list of the basic runner's properties.
@@ -75,7 +75,7 @@ Springboot provides two options to delegate an execution, in this case the migra
 - **InitializingBean:** However, when implementing this interface, the execution is performed before the application is started, but after all the properties and beans are set allows to execute the code after all the beans are set, but before the Springboot application is started.
 
 
-Mongock takes advantage of this aspects and, on top of the method `buildRunner()`, provides two other options to support the ApplicationRunner and InitializingBean.
+Flamingock takes advantage of this aspects and, on top of the method `buildRunner()`, provides two other options to support the ApplicationRunner and InitializingBean.
 
 When using autoconfiguration, you can set the runner type by configuration with:
 ```yaml
@@ -84,15 +84,15 @@ mongock:
 ```
 
 Or with builder, with the methods:
-- **buildApplicationRunner()**, which returns a MongockApplicationRunner implementation of the Springboot ApplicationRunner.
+- **buildApplicationRunner()**, which returns a FlamingockApplicationRunner implementation of the Springboot ApplicationRunner.
 
-- **buildInitializingBeanRunner()**, returning a MongockInitializingBeanRunner, implementation of the Springboot InitializingBean. 
+- **buildInitializingBeanRunner()**, returning a FlamingockInitializingBeanRunner, implementation of the Springboot InitializingBean. 
 
-Bear in mind that the runner, represented by a MongockApplicationRunner or a MongockInitializingBeanRunner, needs to be register as a bean, as follow:
+Bear in mind that the runner, represented by a FlamingockApplicationRunner or a FlamingockInitializingBeanRunner, needs to be register as a bean, as follow:
 ```java
 @Bean
-public MongockInitializingBeanRunner mongockRunner(ConnectionDriver driver, ApplicationContext applicationContext) {
-    return MongockSpringboot.builder()
+public FlamingockInitializingBeanRunner mongockRunner(ConnectionDriver driver, ApplicationContext applicationContext) {
+    return FlamingockSpringboot.builder()
            .setDriver()
            .setSpringContext(applicationContext)
 //...
@@ -103,22 +103,22 @@ public MongockInitializingBeanRunner mongockRunner(ConnectionDriver driver, Appl
 ### Dependency injection
 As mentioned in the [get started section](#get-started), the springboot runner takes the dependency injected to the migration classes(`@ChangeUnit` and the deprecated @ChangeLog), from the Springboot ApplicationContext:
 ```java
-MongockSpringboot.builder()
+FlamingockSpringboot.builder()
     .setSpringContext(springContext);
 ```
 ### Profiles 
-Mongock supports the Spring `@Profile` annoation.
+Flamingock supports the Spring `@Profile` annoation.
 
 When a changeUnit is annotated with `@Profile`, it will only executed if any of the profiles present in the annotation is contained in the Spring activeProfiles array.
 
 ### Events
-As explained in the [events page](/v1/features/events), Mongock provides three Events: StartedEvent, SuccessEvent and FailureEvent. In the Springboot world, these are represented by:
+As explained in the [events page](/v1/features/events), Flamingock provides three Events: StartedEvent, SuccessEvent and FailureEvent. In the Springboot world, these are represented by:
 - SpringMigrationStartedEvent
 - SpringMigrationSuccessEvent
 - SpringMigrationFailureEvent
 
 To listen to these events you need to:
-- Provide the event publisher to the Mongock builder with the method `setEventPublisher(springApplicationEventPublisher)`.
+- Provide the event publisher to the Flamingock builder with the method `setEventPublisher(springApplicationEventPublisher)`.
 - Implement the Springboot ApplicationListener interface for the type of event you want to listen.
 
 ```java
@@ -127,11 +127,11 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MongockSuccessEventListener implements ApplicationListener<SpringMigrationSuccessEvent> {
+public class FlamingockSuccessEventListener implements ApplicationListener<SpringMigrationSuccessEvent> {
 
     @Override
     public void onApplicationEvent(SpringMigrationSuccessEvent event) {
-        System.out.println("[EVENT LISTENER] - Mongock finished successfully");
+        System.out.println("[EVENT LISTENER] - Flamingock finished successfully");
     }
 }
 ```
@@ -186,7 +186,7 @@ builder
       } })
     .setStartSystemVersion("1.3")
     .setEndSystemVersion("6.4")
-    .setLegacyMigration(new MongockLegacyMigration(
+    .setLegacyMigration(new FlamingockLegacyMigration(
         "mongobeeChangeLogCollection", 
         true, 
         "legacyChangeIdField", 

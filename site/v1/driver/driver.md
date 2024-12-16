@@ -12,7 +12,7 @@ eleventyNavigation:
 
 [[TOC]]
 ## Introduction
-To understand the concept of the driver within the Mongock architecture, visit the [technical overview page](/v1/technical-overview#main/components). There you can see the driver is one of the 3 main components in the Mongock architecture, understand its role as well as how the drivers are organized in families of drivers to provide support for different database technologies.
+To understand the concept of the driver within the Flamingock architecture, visit the [technical overview page](/v1/technical-overview#main/components). There you can see the driver is one of the 3 main components in the Flamingock architecture, understand its role as well as how the drivers are organized in families of drivers to provide support for different database technologies.
 
 The two main responsabilities of the driver are:
 - Persisting the change history.
@@ -41,11 +41,11 @@ Although each family of driver may provide some additional configuration that yo
 | Property                            | Description                                                                                  | Type                | Default value |
 | ------------------------------------|----------------------------------------------------------------------------------------------|---------------------|---------------|
 | **migrationRepositoryName**         | Repository name where the change entries are persisted in database. It replaces the deprecated property **changeLogRepositoryName**.<br /> If you need to migrate from another changeLogCollection or from another legacy migration framework, visit the [legacy migration page](/v1/features/legacy-migration) for more information. | String | `mongockChangeLog`|
-| **lockRepositoryName**              | Repository name where the lock is persisted in database. It's important that all the Mongock executions that need to be synchronised(different services or instances using the same MongoDB database) use the same lockCollection. | String | `mongockLock`| 
+| **lockRepositoryName**              | Repository name where the lock is persisted in database. It's important that all the Flamingock executions that need to be synchronised(different services or instances using the same MongoDB database) use the same lockCollection. | String | `mongockLock`| 
 | **lockAcquiredForMillis**           | The period the lock will be reserved once acquired. If the migration finishes before, the lock will be released. If the process takes longer thant this period, it will automatically extended. When using the builder approach, this is applied in the driver. Minimum value is 3 seconds.| long | 1 minute|
-| **lockQuitTryingAfterMillis**       | The time after what Mongock will quit trying to acquire the lock, in case it's acquired by another process. When using the builder approach, this is applied in the driver. Minimum value is 0, which means won't wait whatsoever. | long |  3 minutes|
-| **lockTryFrequencyMillis**          | In case the lock is held by another process, it indicates the frequency trying to acquire it. Regardless of this value, the longest Mongock will wait is until the current lock's expiration. When using the builder approach, this is applied in the driver. Minimum 500 milliseconds.| long | 1 second|
-| **indexCreation**                   | If false, Mongock won't create the necessary index. However it will check that they are already created, failing otherwise. Default true. | String |`true`|
+| **lockQuitTryingAfterMillis**       | The time after what Flamingock will quit trying to acquire the lock, in case it's acquired by another process. When using the builder approach, this is applied in the driver. Minimum value is 0, which means won't wait whatsoever. | long |  3 minutes|
+| **lockTryFrequencyMillis**          | In case the lock is held by another process, it indicates the frequency trying to acquire it. Regardless of this value, the longest Flamingock will wait is until the current lock's expiration. When using the builder approach, this is applied in the driver. Minimum 500 milliseconds.| long | 1 second|
+| **indexCreation**                   | If false, Flamingock won't create the necessary index. However it will check that they are already created, failing otherwise. Default true. | String |`true`|
 
 -------------------------------------------
 
@@ -63,20 +63,20 @@ Similarly to the runners, all the drivers provide a class with two static method
 <p class="tipAlt">Visit the specific driver's page to see what paramters are required.</p>
 
 
-On the other hand, although this job is handled by Mongock, it will probably need some basic parameters, like the database, etc. Once again, please visit the concrete driver page to see what's required.
+On the other hand, although this job is handled by Flamingock, it will probably need some basic parameters, like the database, etc. Once again, please visit the concrete driver page to see what's required.
 
 
 -------------------------------------------
 
 ## Disabling the index creation
-Sometimes, for some reasons, you don't want Mongock to perform administration tasks such as index creations. However they are mandatory and must be created. 
+Sometimes, for some reasons, you don't want Flamingock to perform administration tasks such as index creations. However they are mandatory and must be created. 
 
-In this scenarios Mongock allows you to create the indexes yourself manually by setting `index-creation` to false.
+In this scenarios Flamingock allows you to create the indexes yourself manually by setting `index-creation` to false.
 
 
-However, bear in mind that in this case, although Mongock won't create the indexes, will still check they are correctly created, so the indexes must be created prior to Mongock initialisation. Otherwise will throw an exception.
+However, bear in mind that in this case, although Flamingock won't create the indexes, will still check they are correctly created, so the indexes must be created prior to Flamingock initialisation. Otherwise will throw an exception.
 
-As said, to achieve this you need two things. First telling Mongock to not create the indexes by:
+As said, to achieve this you need two things. First telling Flamingock to not create the indexes by:
 
 Properties
 ```yaml

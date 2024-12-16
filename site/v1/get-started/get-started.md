@@ -14,11 +14,11 @@ eleventyNavigation:
 
 ## Steps
 
-Mongock provides different runners, from the standalone runner(vanilla version) to Springboot, and other frameworks. In this section will show how to use Mongock with Springboot.
+Flamingock provides different runners, from the standalone runner(vanilla version) to Springboot, and other frameworks. In this section will show how to use Flamingock with Springboot.
 
-Carryng on with our **client-service** example in [what is Mongock?](/v1/what-is-mongock), lets start working with Mongock!
+Carryng on with our **client-service** example in [what is Flamingock?](/v1/what-is-mongock), lets start working with Flamingock!
 
-### 1- Add Mongock bom to your Pom file 
+### 1- Add Flamingock bom to your Pom file 
 ```xml
 <dependencyManagement>
     <dependencies>
@@ -49,7 +49,7 @@ Carryng on with our **client-service** example in [what is Mongock?](/v1/what-is
   <artifactId>mongodb-springdata-v3-driver</artifactId>
 </dependency>
 ```
-Mongock is not intrusive, relies the driver library's version on the developer. These libraries are injected with **scope provided**.
+Flamingock is not intrusive, relies the driver library's version on the developer. These libraries are injected with **scope provided**.
 
 
 ### 4- Create your migration script/class
@@ -88,7 +88,7 @@ public class ClientInitializerChange {
   /**
    This method is mandatory even when transactions are enabled.
    They are used in the undo operation and any other scenario where transactions are not an option.
-   However, note that when transactions are avialble and Mongock need to rollback, this method is ignored.
+   However, note that when transactions are avialble and Flamingock need to rollback, this method is ignored.
    **/
   @RollbackExecution
   public void rollback() {
@@ -109,7 +109,7 @@ Plese visit the specific [driver's page](/v1/driver) for more details.
 <p class="tipAlt">When using the builder approach, the driver needs to be injected to the runner by using the method: <b>setDriver</b></p>
 <br />
 
-There are two approaches when comes to build the Mongock runner, the builder and the autoconfiguration approach. Visit the [runner builder](/v1/runner#build) for more information. 
+There are two approaches when comes to build the Flamingock runner, the builder and the autoconfiguration approach. Visit the [runner builder](/v1/runner#build) for more information. 
 <br /><br />
 For this example, we use the autoconfiguration approach with Springboot.
 
@@ -119,11 +119,11 @@ mongock:
   migration-scan-package:
     - io.mongock.examples.migration
 ```
-#### Indicate spring to use Mongock
-This approach lies on the underlying framework to provide a smoothly experience. In this case, we take advantage of the Springboot annotations to tell Spring how to run Mongock. However, this approach requires the Spring ApplicationContext and MongoTemplate to be injected in the Spring context.
+#### Indicate spring to use Flamingock
+This approach lies on the underlying framework to provide a smoothly experience. In this case, we take advantage of the Springboot annotations to tell Spring how to run Flamingock. However, this approach requires the Spring ApplicationContext and MongoTemplate to be injected in the Spring context.
 
 ```java
-@EnableMongock
+@EnableFlamingock
 @SpringBootApplication
 public class App {
   public static void main(String[] args) {
@@ -135,10 +135,10 @@ public class App {
 ### 8- Execute the runner
 [Execute runner](/v1/runner#build)
 
-When using the Springboot runner, you don't need to worry about the execution.  Mongock takes care of it 😉
+When using the Springboot runner, you don't need to worry about the execution.  Flamingock takes care of it 😉
 
 
-Congratulations! Our basic Mongock setup is done. We just need to run our application and we should see something like this in our log.
+Congratulations! Our basic Flamingock setup is done. We just need to run our application and we should see something like this in our log.
 ```
 2021-09-17 17:27:42.157  INFO 12878 --- [main] i.m.r.c.e.o.c.MigrationExecutorBase      : 
 APPLIED - ChangeEntry{"id"="client-initializer", "author"="mongock", "class"="ClientInitializer", "method"="changeSet"}

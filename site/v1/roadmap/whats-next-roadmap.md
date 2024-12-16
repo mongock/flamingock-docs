@@ -10,7 +10,7 @@ eleventyNavigation:
 <h1 class="title">What is Next? 🚀 Our Roadmap</h1>
 
 
-## 💪 Currently supported by Mongock
+## 💪 Currently supported by Flamingock
 
 (Share the most relevant features currently supported or a link to the latest release page)
 
@@ -20,4 +20,4 @@ eleventyNavigation:
 
 ## 🧠 Some Ideas?
 
-Please feel free to share with us [here](mailto:support@mongock.io) if there is a feature that Mongock can help support your project. 
+Please feel free to share with us [here](mailto:support@mongock.io) if there is a feature that Flamingock can help support your project. 

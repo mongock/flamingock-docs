@@ -19,14 +19,14 @@ In our  [example repository](https://github.com/mongock/mongock-examples) you ca
 
 ### MongoDB
 
-- [Quick start](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-quickstart): Basic example with Springboot, spring data and Mongock autoconfiguration.
+- [Quick start](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-quickstart): Basic example with Springboot, spring data and Flamingock autoconfiguration.
 
-- [Springboot builder](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-builder): Basic example with Springboot, spring data and Mongock builder.
+- [Springboot builder](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-builder): Basic example with Springboot, spring data and Flamingock builder.
 
-- [Springboot advanced](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-advance): More advanced example with Springboot, spring data and Mongock builder. It provides some advanced features such as secondary database for retrieving data, events and filtered CLI configuration.
+- [Springboot advanced](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-advance): More advanced example with Springboot, spring data and Flamingock builder. It provides some advanced features such as secondary database for retrieving data, events and filtered CLI configuration.
 
-- [Springboot multitenant](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-multitenant): An example of hadling multitenant migrations with Mongock builder, Springboot and spring data.
-<!--It  requires [Mongock professional](/pro)-->
+- [Springboot multitenant](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-multitenant): An example of hadling multitenant migrations with Flamingock builder, Springboot and spring data.
+<!--It  requires [Flamingock professional](/pro)-->
 
 - [Standalone with MongoDB-sync driver](https://github.com/mongock/mongock-examples/tree/master/mongodb/standalone-mongodb-sync): An example with standalone runner(no framework) and MongoDB-sync driver. It provides some advanced features such as secondary database for retrieving data and events.
 

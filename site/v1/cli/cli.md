@@ -14,7 +14,7 @@ eleventyNavigation:
 
 # Introduction
 
-So far we have explained how to run Mongock as part of your application, normally at the application's startup stage. This section explains how to run those migrations, and other operations, independently from the CLI.
+So far we have explained how to run Flamingock as part of your application, normally at the application's startup stage. This section explains how to run those migrations, and other operations, independently from the CLI.
 
 # Steps
 
@@ -30,18 +30,18 @@ So far we have explained how to run Mongock as part of your application, normall
 ### With Springboot
 If using Springboot in the application, there is not much to be done. Springboot creates already an uber jar with all the dependencies in it. 
 
-By default the Mongock CLI loads the entire application context. If you want the CLI only to load specific configuration classes that are enough to run the migrations, you can do this annotating your main class with `@MongockCliConfiguration`.
+By default the Flamingock CLI loads the entire application context. If you want the CLI only to load specific configuration classes that are enough to run the migrations, you can do this annotating your main class with `@FlamingockCliConfiguration`.
 
 ```java
  
-//The Mongock CLI will load the configuration from the classes 
+//The Flamingock CLI will load the configuration from the classes 
 //io.your.package.ConfigurationClass1 
 //and io.your.package.ConfigurationClass2.
 
 //Theses classes must contain all the beans and 
 //configuration needed to run the migration.
-@EnableMongock
-@MongockCliConfiguration(sources = {
+@EnableFlamingock
+@FlamingockCliConfiguration(sources = {
         io.your.package.ConfigurationClass1.class,
         io.your.package.ConfigurationClass2.class
 })
@@ -50,27 +50,27 @@ public class SpringBootSpringDataAnnotationBasicApp{
   //...
 }
 ```
-<div class="success">When using the builder approach(no <b>@EnableMongock</b>), the RunnerBuilder must be injected as a bean in the application context.</div>
+<div class="success">When using the builder approach(no <b>@EnableFlamingock</b>), the RunnerBuilder must be injected as a bean in the application context.</div>
 
 ### With standalone
 
-When the application uses the Mongock standalone runner, it needs the following to be able to work with the CLI:
-- Implement the interface `MongockBuilderProvider` returning the runner builder used in the application. Notice that should provide an empty constructor that will be used by the CLI.
-- Annotate the main class with `@MongockCliConfiguration` providing the `MongockBuilderProvider` implementation class.
-- Generate an uber jar from the application, which will be passed to the Mongock CLI in the param `--appJar` Mor information about generating an uber jar with [maven](https://maven.apache.org/plugins/maven-shade-plugin/) and [gradle](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow).
+When the application uses the Flamingock standalone runner, it needs the following to be able to work with the CLI:
+- Implement the interface `FlamingockBuilderProvider` returning the runner builder used in the application. Notice that should provide an empty constructor that will be used by the CLI.
+- Annotate the main class with `@FlamingockCliConfiguration` providing the `FlamingockBuilderProvider` implementation class.
+- Generate an uber jar from the application, which will be passed to the Flamingock CLI in the param `--appJar` Mor information about generating an uber jar with [maven](https://maven.apache.org/plugins/maven-shade-plugin/) and [gradle](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow).
 
 ```java
-@MongockCliConfiguration(sources = Application.MongockBuilderProviderImpl.class)
+@FlamingockCliConfiguration(sources = Application.FlamingockBuilderProviderImpl.class)
 public class Application {
 
   public static void main(String[] args) {
-    //TODO your logic is not executed in the Mongock CLI
+    //TODO your logic is not executed in the Flamingock CLI
   }
 
-  public static class MongockBuilderProviderImpl implements MongockBuilderProvider {
+  public static class FlamingockBuilderProviderImpl implements FlamingockBuilderProvider {
     public RunnerStandaloneBuilder getBuilder() {
       //...calling setter methods
-      return MongockStandalone.builder()
+      return FlamingockStandalone.builder()
     }
   }
 }
@@ -79,11 +79,11 @@ public class Application {
 -----------------------------
 # Considerations
 #### appJar parameter 
-The application uber jar (`--appJar` or `-aj`) is one of the mandatory parameters in all the operations(at least those operations interacting with the migration classes, `@ChangeUnit` and `@ChangeLog`). The Mongock CLI takes the migration classes, the dependencies and the runner builder from it.
+The application uber jar (`--appJar` or `-aj`) is one of the mandatory parameters in all the operations(at least those operations interacting with the migration classes, `@ChangeUnit` and `@ChangeLog`). The Flamingock CLI takes the migration classes, the dependencies and the runner builder from it.
 
-#### Mongock version in your application 
-Mongock CLI requires the application to be upgraded to Mongock version 5.
+#### Flamingock version in your application 
+Flamingock CLI requires the application to be upgraded to Flamingock version 5.
 
 <!-- #### Professional operations
 
-There are some  operations labeled with <span class="professional">PRO</span>. This means it's a professional operation that requires the jar application to use the professional Mongock. Visit [this section](/v1/professional) to use Mongock professional in your application. -->
+There are some  operations labeled with <span class="professional">PRO</span>. This means it's a professional operation that requires the jar application to use the professional Flamingock. Visit [this section](/v1/professional) to use Flamingock professional in your application. -->

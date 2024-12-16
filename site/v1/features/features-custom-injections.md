@@ -16,7 +16,7 @@ eleventyNavigation:
 [[TOC]]
 
 # Introduction
-Mongock primarily uses a code-first approach([here](/v1/faq/index.html#why-does-mongock-use-a-code-first-approach-for-its-change-units%3F) we explain why) 
+Flamingock primarily uses a code-first approach([here](/v1/faq/index.html#why-does-mongock-use-a-code-first-approach-for-its-change-units%3F) we explain why) 
 for its migration and one of the benefits is the ability to inject any bean you want to your migration.
 
 Some scenarios this can be useful:
@@ -28,7 +28,7 @@ Some scenarios this can be useful:
 
 # How to use a custom bean in changeUnit
 
-There are two ways you can injet your custom injections to a Mongock changeUnit.
+There are two ways you can injet your custom injections to a Flamingock changeUnit.
 
 ## In a constructor
 ```java
@@ -80,10 +80,10 @@ You have 4 ways to add your bean(or dependency):
 
 ### Just the instance, inferring the type
 
-Mongock will extract the type from the instance.
+Flamingock will extract the type from the instance.
 
 ```java
-MongockStandalone.builder()
+FlamingockStandalone.builder()
         //..        
         .addDependency(youBean)
         .buildRunner()
@@ -95,7 +95,7 @@ MongockStandalone.builder()
 The issue with the previous approach is, for example, when your bean implements an interface and you want your bean to be injected when any changeSet specify the interface as a parameter
 
 ```java
-MongockStandalone.builder()
+FlamingockStandalone.builder()
         //..        
         .addDependency(yourBeanInterface, youBean)
         .buildRunner()
@@ -107,7 +107,7 @@ MongockStandalone.builder()
 Sometimes, regardless of the type, you want the bean to be injected by a name.
 
 ```java
-MongockStandalone.builder()
+FlamingockStandalone.builder()
         //..        
         .addDependency("myBean", youBean)
         .buildRunner()
@@ -119,7 +119,7 @@ MongockStandalone.builder()
 And there may be other times when you want everything, be able to reference your bean in your changeSets with a name and by type.
 
 ```java
-MongockStandalone.builder()
+FlamingockStandalone.builder()
         //..        
         .addDependency("myBean", yourBeanInterface, youBean)
         .buildRunner()
@@ -128,30 +128,30 @@ MongockStandalone.builder()
 
 # Advanced: Proxy explanation
 
-Mongock, as part of its lock mechanism, uses proxies to synchronize all the operations executed in a changeUnit and ensure they are securely executed. 
+Flamingock, as part of its lock mechanism, uses proxies to synchronize all the operations executed in a changeUnit and ensure they are securely executed. 
 This means, by default, all the beans injected in a changeUnit are proxied. 
 
-As part of the Mongock's lock mechanism, by default, all the dependencies injected to a changeUnit are proxied to ensure
+As part of the Flamingock's lock mechanism, by default, all the dependencies injected to a changeUnit are proxied to ensure
 the database is accessed in a  synchronised manner.
 
-The Mongock's proxy instrumentation have two main goals:
+The Flamingock's proxy instrumentation have two main goals:
 
 1. Intercept the actual method you are calling to ensure the lock is acquired.
 2. Return a proxied object  to ensure the lock is acquired in subsequent calls
    <br><br>
 <div class="tipAlt">
-By default, Mongock won't return a proxied object if one of the following conditions is in place:  The returned object is a primitive type, String, Class type, wrapper type or any object in a package prefixed by"java.", "com.sun.", "javax.", "jdk.internal." or "sun."
+By default, Flamingock won't return a proxied object if one of the following conditions is in place:  The returned object is a primitive type, String, Class type, wrapper type or any object in a package prefixed by"java.", "com.sun.", "javax.", "jdk.internal." or "sun."
 </div>
 <br><br>
 
 ## Relaxing the lock: @NonLockGuarded
 
-Although it is a conservative approach, the default Mongock's proxy behaviour it's the recommended option and most cases will be fine with it. 
+Although it is a conservative approach, the default Flamingock's proxy behaviour it's the recommended option and most cases will be fine with it. 
 It is a convenient way which provides a good balance between easiness and performance.
 
-However, sometimes you need a tune this. Luckily in Mongock almost everything is configurable and something as sensitive as a proxy won't be an exception.
+However, sometimes you need a tune this. Luckily in Flamingock almost everything is configurable and something as sensitive as a proxy won't be an exception.
 
-You can tell Mongock to relax the application of the lock on a given bean, class or method with the annotation @NonLockGuarded.
+You can tell Flamingock to relax the application of the lock on a given bean, class or method with the annotation @NonLockGuarded.
 
 There are 3 levels this annotation can be applied
 ### RETURN 
@@ -185,7 +185,7 @@ public void execution(@NonLockGuarded(NONE) RevampRepository revampRepository) {
 ## Where can I apply @NonLockGuarded?
 ### In a ChangeUnit parameter
 
-This will tell Mongock you don't want to proxy that bean in that specific changeUnit method.
+This will tell Flamingock you don't want to proxy that bean in that specific changeUnit method.
 
 This is useful when, in general you are fine proxing the bean, but there are some exceptions or when you don't want to use the annotation in your type, so you annotate all your custom bean parameters in all your changeSet methods.
 
@@ -202,7 +202,7 @@ public class ClientInitializerChangeLog {
 
 ### In the bean's type
 
-If you annotate your custom bean's type, Mongock won't never proxy any bean of that type.
+If you annotate your custom bean's type, Flamingock won't never proxy any bean of that type.
 
 It's obviously useful when you know that type won't be accessing to database at all or you don't want to proxy any parameter of that type, for any other reason.
 

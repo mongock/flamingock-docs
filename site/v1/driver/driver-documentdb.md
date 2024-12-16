@@ -14,12 +14,12 @@ eleventyNavigation:
 
 [[TOC]]
 
-<p class="success">You can manage your <b>DocumentDB</b> migrations by using the Mongock drivers for MongoDB</p>
+<p class="success">You can manage your <b>DocumentDB</b> migrations by using the Flamingock drivers for MongoDB</p>
 
 
 ## Compatibility
 
-As AWS DocumentDB relies on the MongoDB driver/api, **you can use Mongock to manage your migration in the same way you would do with MongoDB**, using one of the drivers Mongock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v1/driver/mongodb-sync)
+As AWS DocumentDB relies on the MongoDB driver/api, **you can use Flamingock to manage your migration in the same way you would do with MongoDB**, using one of the drivers Flamingock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v1/driver/mongodb-sync)
  
  
 

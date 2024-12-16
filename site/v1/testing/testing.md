@@ -12,13 +12,13 @@ eleventyNavigation:
 [[TOC]]
 
 # Introduction
-This sections exaplains the different levels of testing(unit and integration tests) that can(and should) be applied to a Mongock migration and the tools Mongock provides for it.
+This sections exaplains the different levels of testing(unit and integration tests) that can(and should) be applied to a Flamingock migration and the tools Flamingock provides for it.
 
 # Unit testing
 Unit tests are a good starting point to ensure the correctness of a migration. With this mechanism the ChangeUnits can be validated in isolation, covering all the changeUnit's methods: `Execution`, `RollbackExecution`, `BeforeExecution` and `RollbackBeforeExecution`
 
 
-Mongock doesn't provide any speicific tool for this, but we illustrate how to do it  [in our example project](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-quickstart)
+Flamingock doesn't provide any speicific tool for this, but we illustrate how to do it  [in our example project](https://github.com/mongock/mongock-examples/tree/master/mongodb/springboot-quickstart)
 
 A unit test for a change unit looks like this:
 
@@ -36,12 +36,12 @@ To see an example, please see [our example project](https://github.com/mongock/m
 
 
 ## Integration test with Springboot Runner with Junit5
-Mongock provides some useful classes making testing easier. In summary, you need to create your test class extending `MongockSpringbootJUnit5IntegrationTestBase`, which provides the following
+Flamingock provides some useful classes making testing easier. In summary, you need to create your test class extending `FlamingockSpringbootJUnit5IntegrationTestBase`, which provides the following
 - **BeforeEach method(automatically called):** Resets mongock to allow re-utilization(not recommended in production) and build the runner
-- **AfterEach method(automatically called):** Cleans both Mongock repositories(lock and migration) 
-- **Dependency injections:** It ensures the required dependencies(Mongock builder, connectionDriver, etc.) are injected 
-- **executeMongock() method:** To perform the Mongock migration
-- **@TestPropertySource(properties = {"mongock.runner-type=NONE"}):** To prevent Mongock from injecting(and automatically executing) the Mongock runner bean. This is important to allow multiple Mongock runner's executions.
+- **AfterEach method(automatically called):** Cleans both Flamingock repositories(lock and migration) 
+- **Dependency injections:** It ensures the required dependencies(Flamingock builder, connectionDriver, etc.) are injected 
+- **executeFlamingock() method:** To perform the Flamingock migration
+- **@TestPropertySource(properties = {"mongock.runner-type=NONE"}):** To prevent Flamingock from injecting(and automatically executing) the Flamingock runner bean. This is important to allow multiple Flamingock runner's executions.
 
 Please follow these steps...
 ### 1. Import the `mongock-springboot-junit5` dependency to your project
@@ -64,9 +64,9 @@ Although there are multiple ways of doing this, we present what we think provide
     <img src="/images/integration-test-springboot-junit5-db-initialization.png" alt="ChangeUnit unit test">
 </p>
 
-### 4. Create the test class extending the `MongockSpringbootJUnit5IntegrationTestBase`
+### 4. Create the test class extending the `FlamingockSpringbootJUnit5IntegrationTestBase`
 
-This class, in addition to extending `MongockSpringbootJUnit5IntegrationTestBase`, it should also bring the database initialization and the application environment.
+This class, in addition to extending `FlamingockSpringbootJUnit5IntegrationTestBase`, it should also bring the database initialization and the application environment.
 <br /><br />
 This is an example.
 <p class="text-center">
@@ -77,11 +77,11 @@ This is an example.
 
 ## Integration test with Springboot Runner WITHOUT Junit5
 
-In this case Mongock provides pretty much the same than in the JUnit5 case, with the exception of the `before` and `after` methods, what forces you to make these calls explicitly.
+In this case Flamingock provides pretty much the same than in the JUnit5 case, with the exception of the `before` and `after` methods, what forces you to make these calls explicitly.
 
 Based on the previous scenario, the relevant modifications are
 1. Import the dependency `mongock-springboot-test` instead `mongock-springboot-junit5`
-1. Extend from `MongockSpringbootIntegrationTestBase` instead `MongockSpringbootJUnit5IntegrationTestBase`
+1. Extend from `FlamingockSpringbootIntegrationTestBase` instead `FlamingockSpringbootJUnit5IntegrationTestBase`
 2. Explicitly call the methods `super.mongockBeforeEach()` and `super.mongockAfterEach()`
 
 The test class should look like this
@@ -95,10 +95,10 @@ The standalone runner provides more control over the process, allowing you to im
 
 You need to take into account the following 
 
-1. Mongock Runner cannot be execute multiple times, so you need to build a new runner instance and execute it in every test execution. 
+1. Flamingock Runner cannot be execute multiple times, so you need to build a new runner instance and execute it in every test execution. 
 
 
-2. ConnectionDriver cannot be reused, meaning you need to create a new ConnectionDriver instance in every test execution and provide it to the Mongock builder
+2. ConnectionDriver cannot be reused, meaning you need to create a new ConnectionDriver instance in every test execution and provide it to the Flamingock builder
 
 3. If you are sharing the same database for multiple tests, make sure you clean the database, in case you want to start fresh each test case.
 

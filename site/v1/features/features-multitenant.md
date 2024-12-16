@@ -16,19 +16,19 @@ eleventyNavigation:
 
 [[TOC]]
 ## Introduction 
-This feature helps in situations when it's required to setup multiple tenants in a single project. A common scenario is a SaaS product in which, instead of having a shared database for all the clients, each has its own and independent database(in the same or different server), but sharing the same source code and deployment. In this case, you would want to apply the same Mongock migration to each client's database. 
+This feature helps in situations when it's required to setup multiple tenants in a single project. A common scenario is a SaaS product in which, instead of having a shared database for all the clients, each has its own and independent database(in the same or different server), but sharing the same source code and deployment. In this case, you would want to apply the same Flamingock migration to each client's database. 
 <p class="text-center">
     <img src="/images/multitenant-overview.png" alt="multitenant overview" width="75%">
 </p> 
 
 ## How it works
-The application is configured to work with N datasources and Mongock runs the migration for all of them(sequentially). To achieve this, the user has to configure a Mongock driver per datasource, pass them to the Mongock builder and execute the Mongock runner which will apply the migration for all the tenants.
+The application is configured to work with N datasources and Flamingock runs the migration for all of them(sequentially). To achieve this, the user has to configure a Flamingock driver per datasource, pass them to the Flamingock builder and execute the Flamingock runner which will apply the migration for all the tenants.
 
 
-## With Mongock Standalone
-This is the simplest scenario as there is no ORM framework to deal with. It just requires passing a driver per tenant to the Mongock builder. This mechanism is standard and doesn't change among the different Mongock drivers/databases
+## With Flamingock Standalone
+This is the simplest scenario as there is no ORM framework to deal with. It just requires passing a driver per tenant to the Flamingock builder. This mechanism is standard and doesn't change among the different Flamingock drivers/databases
 ```java
-  MongockStandalone.builder()
+  FlamingockStandalone.builder()
     .setDriverMultiTenant(
       MongoSync4Driver.withDefaultLock(mongoClientTenant1, "db-tenant-1"),
       MongoSync4Driver.withDefaultLock(mongoClientTenant2, "db-tenant-2")
@@ -37,7 +37,7 @@ This is the simplest scenario as there is no ORM framework to deal with. It just
 ```
 
 ## With Springdata
-While the core idea and how it works still remains, when using Springdata in a multitenant environment(independently of Mongock) it requires some extra work, which it's explained bellow.
+While the core idea and how it works still remains, when using Springdata in a multitenant environment(independently of Flamingock) it requires some extra work, which it's explained bellow.
 
 ### The challenge
 Springdata hides all the complexity to connect to the database, which helps a lot, but it also means the developer needs to give some flexibility up . In this case, it's not straightforward specifying the database which we want to connect to.
@@ -104,7 +104,7 @@ Springdata would use the `tenantManager` to know which database point to. The im
 
 <br />
 
-The only bit missing is how to link all this to Mongock(it needs the `tenantManager` to select the tenant when applying the change units). For this, Mongock provides the interface `TenantManager`, whose implementation needs to be injected as a bean. There are two options:
+The only bit missing is how to link all this to Flamingock(it needs the `tenantManager` to select the tenant when applying the change units). For this, Flamingock provides the interface `TenantManager`, whose implementation needs to be injected as a bean. There are two options:
 
 - Using the default implemenation, `TenantManagerDefault`. 
 - Implementing the interface `TenantManager`, if custom implementation is required.

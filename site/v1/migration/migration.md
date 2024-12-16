@@ -25,17 +25,17 @@ eleventyNavigation:
 <p class="tip">The <b>@ChangeLog</b> annotation has been <b>deprecated</b> in favour of the <b>@ChangeUnit</b>. For more information check <a href="/v1/faq#why-we-have-added-the-changeunit-annotation-and-deprecated-changelog">this section</a></p>
 
 ## Introduction
- A migration is composed by multiple smaller pieces called ChangeUnits, which are processed in order by the Mongock runner.
+ A migration is composed by multiple smaller pieces called ChangeUnits, which are processed in order by the Flamingock runner.
 
 ChangeUnits are the unit of migration. These refer to the annotated classes where developers write  migration logic/scripts.
 
-All classes with the `@ChangeUnit` annotation will be scanned by Mongock to execute the migration.
+All classes with the `@ChangeUnit` annotation will be scanned by Flamingock to execute the migration.
 
 A migration is constituted by an ordered list of ChangeUnits. Each of the ChangeUnits represent a _unit of migration_, which has the following implications:
 
 1. Each ChangeUnit is wrapped in a **transaction:**. 
-    - When transactions are possible(transactional environment), Mongock uses the mechanism provided by the database. 
-    - On the other hand, in non-transactional environments, Mongock will try to provide an artificial transactional atmosphere by rolling back the failed change manually.
+    - When transactions are possible(transactional environment), Flamingock uses the mechanism provided by the database. 
+    - On the other hand, in non-transactional environments, Flamingock will try to provide an artificial transactional atmosphere by rolling back the failed change manually.
 2. In targeted operations, such as `undo`, `upgrade`, etc., the ChangeUnit is the unit of the operation. For example, when performing an `undo` operation, it needs to specify the _ChangeUnitId_ until which all the ChangeUnits are reverted(inclusive).
 3. A ChangeUnit has only one migration method, which is marked with the **@Execution** annotation, and a rollback method, annotated with **@RollbackExecution**.
 
@@ -53,7 +53,7 @@ Every class marked as `@ChangeUnit` will be marked as a migration class and can 
   - In recovery operation like **undo**.
 - **@BeforeExecution:** Optional method that will be executed before the actual migration, meaning this that it won't be part of the transactional and executed in non-transactional context. It's useful to perform DDL operations in database where they are not allowed inside a transaction, like MongoDB, or as preparation for the actual migration. 
 
-This method is treated and tracked in the database history like the `@Execution` method, meaning this that in case of failure, it will force the migration to be aborted, tracked in the database as failed and Mongock will run it again in the next execution.
+This method is treated and tracked in the database history like the `@Execution` method, meaning this that in case of failure, it will force the migration to be aborted, tracked in the database as failed and Flamingock will run it again in the next execution.
 
 - **@RollbackBeforeExecution:** Similar to the `@RollbackExecution` for the `@Execution` method. It reverts back the changes made by the `@BeforeExecution` method. It's only mandatory when the method `@BeforeExecution` is present.
 
@@ -116,14 +116,14 @@ public class MyMigrationChangeUnit {
 ## Best practices
 
 - **Use the Operation classes in favour of persisted objects in your ChangeUnits**
-  Although Mongock provides a powerful mechanism that allows you to inject any dependency you wish to your ChangeUnits, these are considered the source of truth and should treated like static resources, once executed shouldn't be changed.
+  Although Flamingock provides a powerful mechanism that allows you to inject any dependency you wish to your ChangeUnits, these are considered the source of truth and should treated like static resources, once executed shouldn't be changed.
 
   With this in mind, imagine the scenario you have the class `Client` that represents a table in your database. You create a ChangeUnit which uses the field `name` of the client. One month later, you realise the field is not needed anymore and decide to remove it. If you remove it, the first ChangeUnit's code won't compile. This leaves you with two options: either remove/update the first ChangeUnit or keep the unneeded field `name`. Neither of which is a good option. 
 
   An example for MongoDB would be to use MongoTemplate in favour of using Repository classes directly to perform the migrations.
 
 - **High Availability Considerations:**
-  In a distributed environment where multiple nodes of the application are running, there are a few considerations when building migrations  with Mongock:
+  In a distributed environment where multiple nodes of the application are running, there are a few considerations when building migrations  with Flamingock:
 
   - **Backwards compatible ChangeUnits**
   While the migration process is taking place, the old version of the software is likely to still be running. During this time, it can happen that the old version of the software is dealing with the new version of the data. Scenarios where the data is a mix between old and new versions could also occur. This means the software must still work regardless of the status of the database. It can be a detriment to High Availability if ChangeUnits are  non-backward-compatible ChangeUnits.
@@ -142,7 +142,7 @@ public class MyMigrationChangeUnit {
 
 
 - **Try to enforce idempotency in your ChangeUnits** (for non-transactional environment).
-  In these cases, a ChangeUnit can be interrupted at any time. Mongock will execute again in the next execution. Although you have the rollback feature, in non-transactional environments it's not guaranteed that it's executed correctly.
+  In these cases, a ChangeUnit can be interrupted at any time. Flamingock will execute again in the next execution. Although you have the rollback feature, in non-transactional environments it's not guaranteed that it's executed correctly.
 
 - **ChangeUnit reduces its execution time in every iteration** (for non-transactional environment). 
   A ChangeUnit can be interrupted at any time. This means an specific ChangeUnit needs to be re-run. In the undesired scenario where the ChangeUnit's execution time is greater than the interruption time(could be Kubernetes initial delay), that ChangeUnit won't be ever finished. So the ChangeUnit needs to be developed in such a way that every iteration reduces its execution time, so eventually, after some iterations, the ChangeUnit finished.
@@ -150,7 +150,7 @@ public class MyMigrationChangeUnit {
 ------------------------------------------------------
 <h2 id="changeLog"><strike>ChangeLog</strike></h2>
 
-From Mongock version 5, `@ChangeLog` and `@ChangeSet` annotations are **deprecated** and shouldn't be used. However, these  won't be removed for backwards compatibility.
+From Flamingock version 5, `@ChangeLog` and `@ChangeSet` annotations are **deprecated** and shouldn't be used. However, these  won't be removed for backwards compatibility.
 
 <div class="success">Please follow one of the recommended approaches depending on your use case:
 <p>- <b>For existing changeLogs created prior version 5:</b> Leave it untouched, keeping the deprecated annotation.</p>

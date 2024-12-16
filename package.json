@@ -1,7 +1,7 @@
 {
   "name": "mongock-documentation",
   "version": "1.0.0",
-  "description": "Mongock documentation",
+  "description": "Flamingock documentation",
   "scripts": {
     "clean": "rm -rf ./_site",
     "start": "eleventy --serve",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/monogock/mongock-docs.git"
   },
-  "author": "Mongock team <development@mongock.io> (https://www.mongock.io/)",
+  "author": "Flamingock team <development@mongock.io> (https://www.mongock.io/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/monogock/mongock/issues"

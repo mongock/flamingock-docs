@@ -15,17 +15,17 @@ eleventyNavigation:
 [[TOC]]
 
 ## Introduction
-This section explains the Mongock Driver for Couchbase and how to use it.
+This section explains the Flamingock Driver for Couchbase and how to use it.
 <br />
 
 -------------------------------------------
 
 ## Couchbase driver options and compatibility
 
-Mongock provides the `CouchbaseDriver`, which is compatible with official couchbase Java SDK `com.couchbase.client:java-client` 3.x.x.
+Flamingock provides the `CouchbaseDriver`, which is compatible with official couchbase Java SDK `com.couchbase.client:java-client` 3.x.x.
 `CouchbaseDriver` is tested against Couchbase Server version 6 and Couchbase Server version 7+, but should be working even with older versions.
 
-You can also use the Mongock spring extension to get advantage from the autoconfigure approach with Springboot.
+You can also use the Flamingock spring extension to get advantage from the autoconfigure approach with Springboot.
 
 <br />
 
@@ -81,7 +81,7 @@ Following the [get started section](/v1/get-started#steps-to-run-mongock), this 
 
 ### Build the driver (setps 5)
 
-<p class="successAlt"><b>This step is only required for builder approach.</b> Mongock handles it when autoconfiguration is enabled.</p>
+<p class="successAlt"><b>This step is only required for builder approach.</b> Flamingock handles it when autoconfiguration is enabled.</p>
 These classes provide the same two static initializers
 
 - **withDefaultLock**(Cluster cluster, Collection collection)
@@ -114,7 +114,7 @@ mongock:
 ```
 
 ```java
-@EnableMongock
+@EnableFlamingock
 @SpringBootApplication
 public class QuickStartApp {
     
@@ -138,7 +138,7 @@ CouchbaseDriver driver = CouchbaseDriver.withDefaultLock(cluster, collection);
 
 ### Example: Couchbase Springboot Java Config
 ```java
-@EnableMongock
+@EnableFlamingock
 @SpringBootApplication
 public class QuickStartApp {
     

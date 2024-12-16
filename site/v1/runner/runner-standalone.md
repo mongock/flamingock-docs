@@ -40,7 +40,7 @@ Like the rest of the runners, the standalone runner is built from a builder. Eac
 
 Bear in mind that there are two mandatory parameters for all kind of runner: the `driver` and at least one migration package or class.
 ```java
-MongockStandalone.builder()
+FlamingockStandalone.builder()
     .setDriver(driver)
     .addMigrationScanPackage("com.your.migration.package");
 ```
@@ -55,7 +55,7 @@ ______________________________________
 
 ## Features
 ### Dependency injection
- This feature allows you to inject your own dependencies to your migration classes in the methods directly or at constructor level. Mongock is intelligent enough to handle it. However you need to somehow provide these dependencies. The standalone builder provides the following methods:
+ This feature allows you to inject your own dependencies to your migration classes in the methods directly or at constructor level. Flamingock is intelligent enough to handle it. However you need to somehow provide these dependencies. The standalone builder provides the following methods:
 
  - **addDependency(Object instance):** Manually adds a dependency to be used in your changeUnits, which can be retrieved by its own type.
  - **addDependency(String name, Object instance):** Manually adds a dependency to be used in the  changeUnits, which can be retrieved by a name.
@@ -65,7 +65,7 @@ ______________________________________
 The [example section](#example) shows how to use it in the builder.
 
 ### Events
-As explained in the [events page](/v1/features/events), Mongock provides three Events: StartedEvent, SuccessEvent and FailureEvent. In the standalone context are represented by:
+As explained in the [events page](/v1/features/events), Flamingock provides three Events: StartedEvent, SuccessEvent and FailureEvent. In the standalone context are represented by:
 - MigrationStartedEvent
 - MigrationSuccessEvent
 - MigrationFailureEvent
@@ -80,18 +80,18 @@ import io.mongock.runner.core.event.MigrationFailureEvent;
 import io.mongock.runner.core.event.MigrationStartedEvent;
 import io.mongock.runner.core.event.MigrationSuccessEvent;
 
-public class MongockEventListener {
+public class FlamingockEventListener {
 
   public static void onStart(MigrationStartedEvent event) {
-    System.out.println("[EVENT LISTENER] - Mongock STARTED successfully");
+    System.out.println("[EVENT LISTENER] - Flamingock STARTED successfully");
   }
 
   public static void onSuccess(MigrationSuccessEvent event) {
-    System.out.println("[EVENT LISTENER] - Mongock finished successfully");
+    System.out.println("[EVENT LISTENER] - Flamingock finished successfully");
   }
 
   public static void onFail(MigrationFailureEvent event) {
-    System.out.println("[EVENT LISTENER] - Mongock finished with failures: "
+    System.out.println("[EVENT LISTENER] - Flamingock finished with failures: "
             + event.getMigrationResult().getException().getMessage());
   }
 }
@@ -102,15 +102,15 @@ ______________________________________
 
 ## Example
 ```java
-MongockRunner MongockRunner = MongockStandalone.builder()
+FlamingockRunner FlamingockRunner = FlamingockStandalone.builder()
 //mandatory methods
     .setDriver(MongoSync4Driver.withDefaultLock(mongoClient, MONGODB_DB_NAME))
     .addMigrationScanPackages("io.mongock.examples.migrationPackage")
 //optional methods
     .addMigrationScanPackages("io.mongock.examples.anotherMigrationPackage")
-    .setMigrationStartedListener(MongockEventListener::onStart)
-    .setMigrationSuccessListener(MongockEventListener::onSuccess)
-    .setMigrationFailureListener(MongockEventListener::onFail)
+    .setMigrationStartedListener(FlamingockEventListener::onStart)
+    .setMigrationSuccessListener(FlamingockEventListener::onSuccess)
+    .setMigrationFailureListener(FlamingockEventListener::onFail)
     .addDependency("my-bean", myBean)
     .withMetadata(
         new HashMap(){{
@@ -119,7 +119,7 @@ MongockRunner MongockRunner = MongockStandalone.builder()
       }})
     .setStartSystemVersion("1.3")
     .setEndSystemVersion("6.4")    
-    .setLegacyMigration(new MongockLegacyMigration(
+    .setLegacyMigration(new FlamingockLegacyMigration(
         "mongobeeChangeLogCollection", 
         true, 
         "legacyChangeIdField", 
@@ -129,7 +129,7 @@ MongockRunner MongockRunner = MongockStandalone.builder()
         "legacyChangeSetMethodField"))
     .setTrackIgnored(false)//default false
     .setEnabled(true)//default true
-    .dontFailIfCannotAcquireLock()//by default, it does throw a MongockException
+    .dontFailIfCannotAcquireLock()//by default, it does throw a FlamingockException
     .buildRunner();
   //...
   mongockRunner.execute();

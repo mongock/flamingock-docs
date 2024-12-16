@@ -15,16 +15,16 @@ eleventyNavigation:
 [[TOC]]
 
 ## Introduction
-This section explains the Mongock Driver for DynamoDB and how to use it.
+This section explains the Flamingock Driver for DynamoDB and how to use it.
 <br />
 
 -------------------------------------------
 
 ## DynamoDB driver options and compatibility
 
-Mongock provides the `DynamoDBDriver`, which is compatible with the library `com.amazonaws:aws-java-sdk-dynamodb` 1.x.x.
+Flamingock provides the `DynamoDBDriver`, which is compatible with the library `com.amazonaws:aws-java-sdk-dynamodb` 1.x.x.
 
-You can also use the Mongock spring extension to get advantage from the autconfigure approach with Springboot.
+You can also use the Flamingock spring extension to get advantage from the autconfigure approach with Springboot.
 
 <br />
 
@@ -72,7 +72,7 @@ Following the [get started section](/v1/get-started#steps-to-run-mongock), this 
 
 ### Build the driver (setps 5)
 
-<p class="successAlt"><b>This step is only required for builder approach.</b> Mongock handles it when autoconfiguration is enabled.</p>
+<p class="successAlt"><b>This step is only required for builder approach.</b> Flamingock handles it when autoconfiguration is enabled.</p>
 These classes provide the same two static initializers
 
 - **withDefaultLock**(AmazonDynamoDBClient dynamoDBClient)
@@ -85,9 +85,9 @@ DynamoDBDriver driver = DynamoDBDriver.withDefaultLock(dynamoDBClient);
 ### Driver extra configuration (step 6)
 
 #### Transactions
-Due to the DynamoDB API design, in order to work with transactions, the DynamoDB client needs to use `TransactWriteItemsRequest`. To abstract the user from this and provide the most convenient experience, a ChangeUnit needs to inject the class `DynamoDBTransactionItems` provided by Mongock, to add the items that will take part of the transaction
+Due to the DynamoDB API design, in order to work with transactions, the DynamoDB client needs to use `TransactWriteItemsRequest`. To abstract the user from this and provide the most convenient experience, a ChangeUnit needs to inject the class `DynamoDBTransactionItems` provided by Flamingock, to add the items that will take part of the transaction
 
-Also take into account that DynamoDB [only allows 25 elements in a single transaction](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html) and one of those items must be the Mongock's ChangeEntry, so the user can add up to 24 items to the transaction.
+Also take into account that DynamoDB [only allows 25 elements in a single transaction](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html) and one of those items must be the Flamingock's ChangeEntry, so the user can add up to 24 items to the transaction.
 
 
 <br /><br />
@@ -122,7 +122,7 @@ mongock:
 ```
 
 ```java
-@EnableMongock
+@EnableFlamingock
 @SpringBootApplication
 public class QuickStartApp {
 
@@ -151,11 +151,11 @@ driver.setProvisionedThroughput(new ProvisionedThroughput(100L, 100L));
 
 ### Example: DynamoDB Springboot
 ```java
-@EnableMongock
+@EnableFlamingock
 @SpringBootApplication
 public class QuickStartApp {
 
-    //AmazonDynamoDBClient beans needs to be injected, so the Mongock context can build the driver
+    //AmazonDynamoDBClient beans needs to be injected, so the Flamingock context can build the driver
     @Bean
     public AmazonDynamoDBClient amazonDynamoDBClient() {
         return (AmazonDynamoDBClient) AmazonDynamoDBClientBuilder.standard()

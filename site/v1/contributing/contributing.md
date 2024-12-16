@@ -8,7 +8,7 @@ eleventyNavigation:
   order: 100
 ---
 
-<h1 class="title">Contributing to Mongock project</h1>
+<h1 class="title">Contributing to Flamingock project</h1>
 
 
 🎉  First off, thanks for taking the time to contribute! 🎉 
@@ -35,7 +35,7 @@ Contributor starting a valid discussion(or participates in it) will get listed i
 
 ## Code contribution 💥
 
-This type of contribution consists in actually getting involved in the Mongock's development. It's performed by raising a pull request for a given issue.
+This type of contribution consists in actually getting involved in the Flamingock's development. It's performed by raising a pull request for a given issue.
 
 
 ### Implementing a new driver
@@ -44,7 +44,7 @@ Providing a new driver is considered the highest level of external contribution.
 
 <br />
 
-If you are developing new driver, you either took an issue from our [suggested drivers](https://github.com/mongock/mongock/labels/driver-requested) or you need one and decided to create it yourself. In any case, this needs to be notified to the Mongock team, so we ensure there are no conflicts with other contributors and the required repository and any other resources are created. For this, if there is already an issue created , please write a comment claim it and we'll answer asap. Otherwise, please email us to [development@mongock.io](mailto:development@mongock.io) and will answer asap facilitating everything required for you start contributing.
+If you are developing new driver, you either took an issue from our [suggested drivers](https://github.com/mongock/mongock/labels/driver-requested) or you need one and decided to create it yourself. In any case, this needs to be notified to the Flamingock team, so we ensure there are no conflicts with other contributors and the required repository and any other resources are created. For this, if there is already an issue created , please write a comment claim it and we'll answer asap. Otherwise, please email us to [development@mongock.io](mailto:development@mongock.io) and will answer asap facilitating everything required for you start contributing.
 
 <br />
 
@@ -62,21 +62,21 @@ To perform a pull request, please follow these steps:
 4. Add the required unit/integration tests
 5. Update the documentation accordingly in [this project](https://github.com/mongock/mongock-docs)
 6. Raise a pull request for the documentation   
-7. Raise a pull request for the actual change in the Mongock project, filling up the form you will find and providing the documentation pull request.
+7. Raise a pull request for the actual change in the Flamingock project, filling up the form you will find and providing the documentation pull request.
 8. We'll review both of them shortly and will let you know if any further change or explanation is required or we have everything we need to merge into `develop` branch
 
 Contributor raising successful pul request will get listed with special mention in our [contributor list](https://github.com/mongock/mongock/graphs/contributors).
 
 ## Rewards 💰💰
 
-We really value those open-source enthusiasts that want to contribute to the software community, and specially those that help Mongock to get better. That's why we have set
-a rewarding plan to try to compensate the effort and obviously motivate them to be part of the Mongock's community.
+We really value those open-source enthusiasts that want to contribute to the software community, and specially those that help Flamingock to get better. That's why we have set
+a rewarding plan to try to compensate the effort and obviously motivate them to be part of the Flamingock's community.
 
 ### Issue rewarding
  Submitting good issues  that represent real problems(or enhancements) is very important in an open-source project, and requires time and effort. This is why contributors that raise a valid issue will be recognised and listed in our [contributor list](https://github.com/mongock/mongock/graphs/contributors).
 
 ### Discussion rewarding
- Similarly to issues, discussions are really helpful to improve the Mongock project. This area focuses less in fixing, but really helps us in getting new ideas or approaches. In the same way as issues, any contributor who starts(or participates in) a discussion will be recognised and listed in our [contributor list](https://github.com/mongock/mongock/graphs/contributors).
+ Similarly to issues, discussions are really helpful to improve the Flamingock project. This area focuses less in fixing, but really helps us in getting new ideas or approaches. In the same way as issues, any contributor who starts(or participates in) a discussion will be recognised and listed in our [contributor list](https://github.com/mongock/mongock/graphs/contributors).
 
 ### Code contribution rewarding
  In this case the contributor not only gets listed into our [contributor list](https://github.com/mongock/mongock/graphs/contributors), also obtains a special mention. For requested features we often provide bounties to motivate our community. Visit our list [requested contributions](https://github.com/mongock/mongock/labels/contribution-requested) and see if there is any with a bounty label, indicating the amount 😜

@@ -14,7 +14,7 @@ eleventyNavigation:
 
 # migrate all
 
-Execute all the pending changeUnits, as the standard Mongock migration process.
+Execute all the pending changeUnits, as the standard Flamingock migration process.
 
 ```bash
 $ ./mongock migrate all -aj <APP_JAR>
@@ -31,7 +31,7 @@ $ ./mongock migrate all -aj <APP_JAR>
 
 # migrate up-to-change  <span class="professional"><a href="/pro/index.html">PRO</a></span>
 
-Execute the pending changeUnits until the specified `CHANGE_UNIT_ID` (included), as the standard Mongock migration process.
+Execute the pending changeUnits until the specified `CHANGE_UNIT_ID` (included), as the standard Flamingock migration process.
 
 ```bash
 $ ./mongock migrate up-to-change <CHANGE_UNIT_ID> -aj <APP_JAR>

@@ -1,1 +1,1 @@
-## Mongock Documentation repository
+## Flamingock Documentation repository

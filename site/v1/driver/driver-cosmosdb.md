@@ -16,7 +16,7 @@ eleventyNavigation:
 
 [[TOC]]
 
-<p class="success">You can manage your <b>CosmosDB</b> migrations by using the Mongock drivers for MongoDB</p>
+<p class="success">You can manage your <b>CosmosDB</b> migrations by using the Flamingock drivers for MongoDB</p>
 
 
 ## Introduction
@@ -25,11 +25,11 @@ eleventyNavigation:
 You can leverage your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB account's connection string.
 
 ## Getting started
-**You can use Mongock to manage your Cosmos DB migrations in the same way you would do with MongoDB**, using one of the drivers Mongock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v1/driver/mongodb-sync)
+**You can use Flamingock to manage your Cosmos DB migrations in the same way you would do with MongoDB**, using one of the drivers Flamingock provides for MongoDB. You can see how to use it in our [MongoDB driver section](/v1/driver/mongodb-sync)
  
 ## Important notes
-### Sharding the Mongock ChangeLog collection
-If you want to shard the Mongock changeLog collection, you need to use the key `executionId` as shard key. This is due to the fact that the `executionId` is the prefix of the Mongock's compound index and the MongoDB official documentation states:
+### Sharding the Flamingock ChangeLog collection
+If you want to shard the Flamingock changeLog collection, you need to use the key `executionId` as shard key. This is due to the fact that the `executionId` is the prefix of the Flamingock's compound index and the MongoDB official documentation states:
 
 `...The index can be an index on the shard key or a compound index where the shard key is a prefix of the index.`
 
