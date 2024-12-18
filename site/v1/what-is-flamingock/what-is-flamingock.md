@@ -41,13 +41,13 @@ In a nutshell:
 
 - **Broad Applicability**: Move beyond NoSQL databases. Flamingock supports any system, database, or configuration, offering unmatched flexibility for various architectures and technologies.
 
-- **Cloud-Native Convenience**: Leverage Flamingock's cloud offering for a fully managed solution. Focus on building your application while Flamingock handles operational data management.
+- **Cloud-Native Convenience**: Leverage Flamingock's cloud offering for a fully managed solution. Focus on building your application while Flamingock handles audited change data management.
 
 - **Built-In Auditing and Rollback**: Gain full control over changes with built-in auditing capabilities and rollback mechanisms, ensuring consistency across deployments.
 
-- **No-Code and Code-Based Options**: Define changes in a way that suits your workflow. Whether you prefer traditional code-based methods or intuitive no-code templates, Flamingock adapts to your needs.
+- **Low-Code and Code-Based Options**: Define changes in a way that suits your workflow. Whether you prefer traditional code-based methods or intuitive no-code templates, Flamingock adapts to your needs.
 
-- **High Performance for Distributed Environments**: With features like distributed locking and parallel synchronized execution, Flamingock is designed to handle the complexities of distributed deployments, ensuring consistent and efficient updates.
+- **Optimised for Distributed Environments**: With features like distributed locking and parallel synchronized execution, Flamingock is designed to handle the complexities of distributed deployments, ensuring consistent and efficient updates.
 
 - **Future-Ready with GraalVM Support**: Compile Java applications into native executables for improved performance, making Flamingock a future-proof choice for modern applications.
 
@@ -55,17 +55,13 @@ In a nutshell:
 
 - **Multi-ecosystem**: It provides support for multiple programming languages and ecosystems.
 
-- **Multi-framework**: Can be used together with most, if not all, frameworks.
+- **Multi-framework support**: Can be used together with most, if not all, frameworks, like Spring boot, Micronaut, Quarkus, etc.
 
-- **Springboot support**: Great support with the Spring Framework overall, providing native implementations in SpringBoot.
-
-- **Well adopted**: Adopted by well-known frameworks such as JHipster as part of the scaffolding, as well as big corporations and tech companies in different industries.
+- **Widely adopted**: Adopted by well-known frameworks such as JHipster as part of the scaffolding, as well as big corporations and tech companies in different industries.
 
 - **Regularly maintained**: We maintain and update features regularly
 
 - **Open source**: We are an open source tool, operating under the Apache License 2.0
-
-- **Ideal for distributed systems**: Flamingock is used in distributed systems as the solution implements a solid locking mechanism
 
 - **Database ADN**:  While it supports a big range of databases, as any other system, tt is the most reliable production-grade solution for MongoDB migrations currently in the market, compatible with Mongo Atlas and different MongoDB versions.
 
