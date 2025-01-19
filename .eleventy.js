@@ -129,8 +129,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('site/favicon')
   eleventyConfig.addPassthroughCopy('site/images')
   eleventyConfig.addPassthroughCopy('site/styles')
+  eleventyConfig.addPassthroughCopy('site/scripts')
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  eleventyConfig.setBrowserSyncConfig({
+    port: 8082
+  });
 
   const markdownEngine = markdownIt({ html: true })
 
