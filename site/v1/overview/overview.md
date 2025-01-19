@@ -1,5 +1,5 @@
 ---
-title: What is Flamingock?
+title: Overview
 date: 2024-12-16 11:30:00 
 permalink: /index.html
 eleventyNavigation:
@@ -12,28 +12,24 @@ eleventyNavigation:
     <img src="/images/flamingock-logo-with-title.png" width="65%" alt="Flamingock">
 </p>
 
-[//]: # (<div class="success">)
+## Overview
 
-[//]: # (<b>Flamingock 5 released!!</b> Please visit the <a href="/v1/from-version-4-to-5">upgrade page</a> to follow easy process. )
-
-[//]: # (</div>)
-
-## Introduction
-
-Flamingock is the evolution of Mongock, reimagined as a cloud-native tool for distributed environments. 
+Flamingock is the evolution of Mongock, reimagined as a cloud-native tool for distributed environments.
 It seamlessly integrates with your application to manage versioning and audit changes in systems that evolve alongside it
 
 Whilst Mongock focused on versioning NoSQL databases, Flamingock extends this concept to all technologies, systems,
-and configurations, with built-in auditing and rollback capabilities. It ensures the application and its dependent 
-components evolve together by managing configuration changes during startup to maintain version compatibility, 
+and configurations, with built-in auditing and rollback capabilities. It ensures the application and its dependent
+components evolve together by managing configuration changes during startup to maintain version compatibility,
 streamline integration, and reduce conflicts at deployment time.
 
->Additionally, Flamingock offers multiple infrastructure setups for providing flexibility to users, as it introduces a Cloud offering whilst still retaining existing supported databases such as MongoDB, DynamoDB, or Couchbase.
+
+
+Additionally, Flamingock offers multiple infrastructure setups for providing flexibility to users, as it introduces a Cloud offering whilst still retaining existing supported databases such as MongoDB, DynamoDB, or Couchbase.
 
 ------------------------------------------------
 
-## Why Flamingock?
-Our mission is to enable developers to deploy and manage stateful changes in distributed systems in a safe and reliable manner. 
+## Why Flamingock and key features
+Our mission is to enable developers to deploy and manage stateful changes in distributed systems in a safe and reliable manner.
 
 In a nutshell:
 
@@ -66,7 +62,7 @@ In a nutshell:
 - **Database ADN**:  While it supports a big range of databases, as any other system, tt is the most reliable production-grade solution for MongoDB migrations currently in the market, compatible with Mongo Atlas and different MongoDB versions.
 
 
-Get more information about our support model at [support@mongock.io](mailto:support@mongock.io) and we can help you walking you to production. 
+Get more information about our support model at [support@mongock.io](mailto:support@mongock.io) and we can help you walking you to production.
 
 ------------------------------------------------
 
