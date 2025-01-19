@@ -15,21 +15,14 @@ Concepts
 Etc.
 
 Getting Started
-- Installation: Guide for setting up Flamingock, both for the cloud-native service and self-hosted options (if applicable).
-- Quick Start Guide: A hands-on tutorial for quickly integrating Flamingock into an existing project or system.
-- Configuration: Configuration options and best practices for setting up Flamingock, including environment variables, default settings, etc.
-- Supported Platforms & Technologies: A list of supported databases, systems, and configurations, and instructions for integrating with them.
-
-Cloud
-- Overview of Cloud-Native Flamingock: Explanation of the self-managed cloud service and its advantages.
-- Transaction Handling: How transactions are managed to ensure data integrity in the cloud.
-- Setup and Configuration: Step-by-step guide to setting up and configuring the cloud service for different environments.
-- Introduce the UI??
-
-Getting Started
-- Installation: Guide for setting up Flamingock, including both cloud and fallback local driver options.
+- Installation: Guide for setting up Flamingock cloud and client, including both cloud and fallback local driver options.
 - Quick Start Guide: A hands-on tutorial for quickly integrating Flamingock into an existing project or system.
 - Configuration: Configuration options for setting up Flamingock, including environment variables and default settings.
+
+Architectural overview
+- Provide the architectural overview with the cloud integration
+- Transaction Handling: How transactions are managed to ensure data integrity in the cloud.
+- Maybe, showing with a secondry focus, the integration with local driver as an alternative
 
 Runners
 - Standalone: Explain standalone runner
@@ -63,13 +56,14 @@ Local drivers
 Resources
 - Explains
 
-Contributing
+
+Migration from Mongock
 - Explains
 
 FAQ
 - Explains
 
-Migration from Mongock
+Contributing
 - Explains
 
 Changelog
