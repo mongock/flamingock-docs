@@ -91,6 +91,8 @@ Etc.
 # Migration from Mongock
 - from v3 to Flamingock
 - from v4 to Flamingock
+- id+ author potential issue when importing if changed annotation in changeUnit
+> Note: Regarding the last point, there is some room to discussion
 
 # FAQ  --> Separate file
 - Explains
